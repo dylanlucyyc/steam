@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/burgericon.css" />
+    <script defer src="js/script.js"></script>
+    <script defer type="module" src="js/controller.js"></script>
+
+    <title>Steam</title>
+  </head>
+  <body>
+    <header class="header">
+      <a href="/">
+        <img
+          class="header__logo"
+          src="assets/logo_steam.svg"
+          alt="Steam Logo"
+        />
+      </a>
+
+      <div class="desktop">
+        <ul class="navigation">
+          <li>
+            <a href="#">Store</a>
+          </li>
+          <li>
+            <a href="#">Community</a>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#">Support</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mobile">
+        <div id="nav-icon1">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <ul class="navigation">
+          <li>
+            <a href="#">Store</a>
+          </li>
+          <li>
+            <a href="#">Community</a>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#">Support</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="main">
+      <sidebar class="sidebar">
+        <form class="search__form">
+          <div class="search">
+            <input
+              class="search__input"
+              type="text"
+              id="search"
+              name="search"
+              placeholder="Search"
+            />
+            <img
+              src="https://store.cloudflare.steamstatic.com/public/images/blank.gif"
+              alt="icon"
+            />
+            <button class="search__button">
+              <img
+                src="assets/magnifying-glass.png"
+                alt="icon"
+                width="16px"
+                height="auto"
+              />
+            </button>
+          </div>
+        </form>
+
+        <ul class="genres-list">
+          <!-- <li class="genres-list__item">
+            <a class="genres-list__button" href="#">Action</a>
+          </li>
+          <li class="genres-list__item">
+            <a class="genres-list__button" href="#">Casual</a>
+          </li>
+          <li class="genres-list__item">
+            <a class="genres-list__button" href="#">FPS</a>
+          </li>
+          <li class="genres-list__item">
+            <a class="genres-list__button" href="#">MMO</a>
+          </li>
+          <li class="genres-list__item">
+            <a class="genres-list__button" href="#">RPG</a>
+          </li>
+          <li class="genres-list__item">
+            <a class="genres-list__button" href="#">RTS</a>
+          </li> -->
+        </ul>
+      </sidebar>
+      <div class="content"></div>
+    </main>
+  </body>
+</html>

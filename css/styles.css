@@ -1,0 +1,240 @@
+:root {
+  --main-color: #161a21;
+  --secondary-color: #c4c2bf;
+  --display-bg: #1e2837;
+  --body-text: #7cbeef;
+  --price-text: #e07f27;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Motiva Sans", sans-serif;
+  font-size: 62.5%;
+  color: var(--secondary-color);
+}
+body {
+  font-size: 1.8rem;
+  overflow-x: hidden;
+}
+
+header {
+  background-color: var(--main-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 4rem;
+}
+
+.navigation {
+  text-transform: uppercase;
+  gap: 2rem;
+  list-style: none;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-weight: 500;
+}
+
+.navigation a:link,
+.navigation a:active {
+  color: var(--secondary-color);
+}
+
+.navigation a:hover {
+  color: var(--body-text);
+}
+
+.header__logo {
+  width: 20rem;
+  height: auto;
+}
+
+.desktop .navigation {
+  display: flex;
+  flex-direction: row;
+}
+
+.mobile {
+  display: none;
+}
+
+.main {
+  width: 100vw;
+  min-height: 90vh;
+  background-color: var(--display-bg);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0;
+}
+
+.sidebar {
+  width: 20%;
+  padding: 3rem 2rem;
+  border-right: 0.5px solid var(--display-bg);
+}
+
+.search {
+  display: flex;
+}
+.search__input {
+  width: 100%;
+  height: 3.5rem;
+  background-color: #3d617f;
+  color: var(--secondary-color);
+  padding: 1rem;
+  outline: none;
+  border: none;
+  font-size: 2rem;
+}
+
+.search__input::placeholder {
+  color: var(--secondary-color);
+  font-size: 2rem;
+}
+
+.search__button {
+  background-color: transparent;
+  border: none;
+  margin-left: -2.4rem;
+  filter: invert(100%);
+  opacity: 0.8;
+}
+
+.genres-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  padding-top: 2rem;
+  padding-left: 1rem;
+}
+.genres-list__button {
+  color: var(--body-text);
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.genres-list__button:hover {
+  color: var(--secondary-color);
+}
+
+.content {
+  width: 80%;
+  padding: 3rem 4rem;
+  background-image: url(https://cdn.cloudflare.steamstatic.com/store/promo/autumn2024/Tile-Bg-Autumn.webp);
+}
+
+.content__display,
+.content__features {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(20rem, 1fr));
+  gap: 1.8rem;
+}
+
+.content__features {
+  margin-bottom: 6rem;
+}
+
+.content__title {
+  margin-bottom: 2rem;
+}
+
+.content__display__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.content__display a,
+.content__features a {
+  position: relative;
+  display: block;
+  text-decoration: none;
+}
+
+.content__display__title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.5rem;
+  color: var(--body-text);
+  background: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+/**********Single*********/
+
+.single {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.single__title {
+  font-size: 4.8rem;
+  margin-bottom: 2rem;
+}
+
+.single__box {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2rem;
+  font-size: 2rem;
+  line-height: 1.6;
+}
+
+.single__img {
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.single__info {
+  width: 100%;
+}
+
+.single__description {
+  margin-bottom: 2rem;
+}
+.single__detail {
+  color: var(--body-text);
+  margin-bottom: 1.8rem;
+}
+
+.single__tags h3 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.single__tags ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.single__tags li {
+  display: inline-block;
+  background-color: var(--body-text);
+  color: var(--main-color);
+  padding: 1rem 1.2rem;
+}
+
+.single__price {
+  display: inline-block;
+  background-color: var(--price-text);
+  color: var(--main-color);
+  padding: 1rem 1.2rem;
+}
