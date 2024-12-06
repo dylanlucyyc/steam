@@ -1,5 +1,3 @@
-import * as model from "../model.js";
-
 export class View {
   _data;
   constructor() {
