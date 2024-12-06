@@ -1,47 +1,59 @@
 import * as model from "./model.js";
-import { View } from "./views.js";
+import defaultView from "./views/defaultView.js";
+import genreView from "./views/genreView.js";
+import searchView from "./views/searchView.js";
+import singleGameView from "./views/singleGameView.js";
 
-class Controller {
-  constructor() {
-    this.view = new View();
-  }
-
-  async handleGenres(name) {
-    // this.view.renderSingle(model.state.id);
-    // console.log(id);
+async function handleGenres(name) {
+  try {
+    genreView.renderSpinner();
     const genreList = await model.genreList(name);
-    // console.log(name, genreList);
-    this.view.renderGenre(name, genreList);
-  }
-
-  async handleSingle(id) {
-    const singleGame = await model.singleGame(id);
-    this.view.renderSingleGame(singleGame);
-  }
-
-  async handleSearch() {
-    const query = this.view.getQuery();
-    console.log(query);
-    if (!query) return;
-    const searchResult = await model.loadSearchResults(query);
-    this.view.renderSearchResults(query, searchResult);
-  }
-
-  init() {
-    // Get data from the model
-    const games = model.getGames();
-    const genres = model.getGenres();
-    const features = model.getFeatures();
-
-    // Update the view with the data
-    this.view.renderDefault(games, features);
-    this.view.renderGenres(genres);
-    this.view.addHandlerClick(this.handleGenres.bind(this));
-    this.view.addHandlerSingleClick(this.handleSingle.bind(this));
-    this.view.addHandlerSearch(this.handleSearch.bind(this));
-  }
+    genreView.renderGenre(name, genreList);
+  } catch (error) {}
 }
 
-// Instantiate and initialize the controller
-const controller = new Controller();
-controller.init();
+async function handleSingle(id) {
+  try {
+    singleGameView.renderSpinner();
+    const singleGame = await model.singleGame(id);
+    singleGameView.renderSingleGame(singleGame);
+  } catch (error) {}
+}
+
+async function handleSearch() {
+  try {
+    const query = searchView.getQuery();
+    if (!query) return;
+    searchView.renderSpinner();
+    const searchResult = await model.loadSearchResults(query);
+    searchView.renderSearchResults(query, searchResult);
+  } catch (error) {}
+}
+
+async function handleGenreList() {
+  try {
+    genreView.renderSpinner();
+    const genres = await model.getGenres();
+    genreView.renderGenres(genres);
+  } catch (error) {}
+}
+
+async function getDefault() {
+  try {
+    defaultView.renderSpinner();
+    const games = await model.getGames();
+    const features = await model.getFeatures();
+    defaultView.renderDefault(games, features);
+  } catch (error) {}
+}
+
+const init = function () {
+  handleGenreList();
+  getDefault();
+  handleSearch();
+  searchView.addHandlerSearch(handleSearch);
+  singleGameView.addHandlerSingleClick(handleSingle);
+  genreView.addHandlerClick(handleGenres);
+};
+
+init();

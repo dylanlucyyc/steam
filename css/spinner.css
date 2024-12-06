@@ -1,0 +1,21 @@
+.spinner {
+  margin: 5rem auto;
+  text-align: center;
+}
+
+.spinner img {
+  height: 6rem;
+  width: auto;
+  animation: rotate 2s infinite linear;
+  filter: invert(100%);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

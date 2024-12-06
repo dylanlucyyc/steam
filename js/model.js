@@ -6,29 +6,30 @@ import {
 } from "./config.js";
 import { AJAX } from "./helpers.js";
 
-export const state = {
-  display: "",
-  id: "",
-};
+// export const state = {
+//   display: "",
+//   id: "",
+//   genreList: "",
+// };
 
-const games = await AJAX(URL_ALLGAME);
-const genres = await AJAX(URL_GENRES);
-const features = await AJAX(URL_FEATURES);
-
-export function getGames() {
+export async function getGames() {
+  const games = await AJAX(URL_ALLGAME);
   return games.data;
 }
 
-export function getGenres() {
+export async function getGenres() {
+  const genres = await AJAX(URL_GENRES);
   return genres.data;
 }
 
-export function getFeatures() {
+export async function getFeatures() {
+  const features = await AJAX(URL_FEATURES);
   return features.data;
 }
 
 export async function genreList(name) {
   const genreList = await AJAX(`${URL_ALLGAME}?genres=${name}`);
+  // state.genreList = genreList;
   return genreList.data;
 }
 
