@@ -17,6 +17,13 @@ html {
   font-size: 62.5%;
   color: var(--secondary-color);
 }
+
+@media (max-width: 768px) {
+  html {
+    font-size: 50%;
+  }
+}
+
 body {
   font-size: 1.8rem;
   overflow-x: hidden;
@@ -67,7 +74,7 @@ header {
 }
 
 .main {
-  width: 100vw;
+  width: 100%;
   min-height: 90vh;
   background-color: var(--display-bg);
   display: flex;

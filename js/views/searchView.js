@@ -12,8 +12,12 @@ class searchView extends View {
 
   getQuery() {
     const query = this.searchForm.querySelector(".search__input").value;
-    // this._clearInput();
+    this._clearInput();
     return query;
+  }
+
+  _clearInput() {
+    this.searchForm.querySelector(".search__input").value = "";
   }
 
   addHandlerSearch(handler) {

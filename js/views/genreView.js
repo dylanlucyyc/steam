@@ -23,7 +23,7 @@ class genreView extends View {
     const genreListMarkup = genreList
       .map(
         (game) => `
-          <a class="content__display__card" href="${game.appid}">
+          <a class="content__display__card"  data-game="${game.appid}">
             <img class="content__display__image" src="${game.header_image}" alt="" />
             <h2 class="content__display__title">${game.name}</h2>
           </a>
